@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}
+
+body {
+  background-color: #282c34;
+  color: #282c34;
+}
+
+h1 {
+  font-family: "Ubuntu Condensed", sans-serif;
+  color: grey;
+}
+
+.main-container {
+  width: 480px;
+  margin: 0 auto;
+}
+.editor-wrapper {
+  border: 1px solid grey;
+  padding: 6px;
+  height: 40vh;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin: 1vh;
+}
+
+.editor2-wrapper {
+  border: 1px solid grey;
+  padding: 6px;
+  height: 60vh;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin: 1vh;
+}
+
+.collection {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px 3px 5px 5px;
+  border-radius: 5px;
+}
+
+.styleButtons {
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-size: medium;
+  font-weight: 900;
+  align-items: baseline;
+  color: #ef5350;
+}
+
+button:active {
+  background-image: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-field input[type="text"]:focus + label {
+  color: red;
+}
