@@ -15,7 +15,7 @@ function App() {
         <div>
           <Header />
 
-          <Route path="/editorV1">
+          <Route exact path="/editorV1">
             <EditorV1 />
           </Route>
 
