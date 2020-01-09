@@ -11,18 +11,15 @@ import Header from "./components/Header";
 function App() {
   return (
     <Router>
+      <Header />
       <Switch>
-        <div>
-          <Header />
+        <Route path="/editorV1">
+          <EditorV1 />
+        </Route>
 
-          <Route exact path="/editorV1">
-            <EditorV1 />
-          </Route>
-
-          <Route path="/editorV2">
-            <EditorV2 />
-          </Route>
-        </div>
+        <Route path="/editorV2">
+          <EditorV2 />
+        </Route>
       </Switch>
     </Router>
   );
