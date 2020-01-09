@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path="/editorV1">
+        <Route exact path="/editorV1">
           <EditorV1 />
         </Route>
 

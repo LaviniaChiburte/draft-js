@@ -6,7 +6,7 @@ export default function Header() {
     <div>
       <nav>
         <div className="nav-wrapper red lighten-2">
-          <a href="#!" className="brand-logo">
+          <a href="/editorV1" className="brand-logo">
             DraftJS
           </a>
           <ul className="right hide-on-med-and-down">
