@@ -105,10 +105,10 @@ class EditorV2 extends React.Component {
 
   render() {
     return (
-      <div className="main-container">
+      <div className="main-container-editor-v2">
         <h1>Write something!</h1>
 
-        <div className="editor2-wrapper collection">
+        <div className="editor2-wrapper collection-editor-v2">
           <button
             className="styleButtons waves-effect btn-small white lighten-4"
             onClick={this.onBoldClick.bind(this)}
