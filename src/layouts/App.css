@@ -4,6 +4,12 @@
 }
 
 body {
+  background-image: url("./nadia-valko-jUddZdhBmuo-unsplash.jpg");
+  background-repeat: repeat;
+  background-position: 70% 30%;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
   background-color: #282c34;
   color: #282c34;
 }
@@ -13,19 +19,39 @@ h1 {
   color: grey;
 }
 
-.main-container {
+.btn {
+  margin: 1vw;
+}
+
+.main-container-editor-v1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.collection-editor-v1 {
+  background-color: #282c34;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px 3px 5px 5px;
+  border-radius: 5px;
+  width: 70vw;
+}
+
+.editor-v1-wrapper {
+  border: 1px solid grey;
+  width: 70vw;
+  height: 90vh;
+  padding: 5vh;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.main-container-editor-v2 {
   width: 480px;
   margin: 0 auto;
 }
-.editor-wrapper {
-  border: 1px solid grey;
-  padding: 6px;
-  height: 40vh;
-  background-color: whitesmoke;
-  border-radius: 10px;
-  margin: 1vh;
-}
-
 .editor2-wrapper {
   border: 1px solid grey;
   padding: 6px;
@@ -35,7 +61,7 @@ h1 {
   margin: 1vh;
 }
 
-.collection {
+.collection-editor-v2 {
   display: flex;
   justify-content: space-evenly;
   padding: 5px 3px 5px 5px;

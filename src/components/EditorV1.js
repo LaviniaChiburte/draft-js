@@ -1,9 +1,9 @@
 import React from "react";
 import { Editor, EditorState, RichUtils, convertToRaw } from "draft-js";
-import createHighlightPlugin from "../plugins/highlightPlugin";
-import addLinkPlugin from "../plugins/addLinkPlugin";
+// import createHighlightPlugin from "../plugins/highlightPlugin";
+// import addLinkPlugin from "../plugins/addLinkPlugin";
 
-const highlightPlugin = createHighlightPlugin();
+// const highlightPlugin = createHighlightPlugin();
 
 class EditorV1 extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class EditorV1 extends React.Component {
       editorState: EditorState.createEmpty()
     };
 
-    this.plugins = [highlightPlugin, addLinkPlugin];
+    // this.plugins = [highlightPlugin, addLinkPlugin];
   }
 
   onChange = editorState => {
@@ -106,19 +106,8 @@ class EditorV1 extends React.Component {
 
   render() {
     return (
-      <div className="main-container">
-        <h1>Write something</h1>
-
-        <div className="input-field col s12">
-          <label for="title">Title</label>
-          <input
-            type="text"
-            className="validate"
-            value={this.state.title}
-          ></input>
-        </div>
-
-        <div className="collection">
+      <div className="main-container-editor-v1">
+        <div className="collection-editor-v1">
           <button
             className="styleButtons waves-effect btn-small white lighten-4"
             onClick={this.onBoldClick.bind(this)}
@@ -178,10 +167,10 @@ class EditorV1 extends React.Component {
             <i className="tiny material-icons">attach_file</i>
           </button>
         </div>
-
-        <div className="editor-wrapper">
+        <div className="editor-v1-wrapper">
           <Editor
             editorState={this.state.editorState}
+            placeholder="write something"
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
             plugins={this.plugins}
