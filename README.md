@@ -1,4 +1,4 @@
-## Demo
+Netlifyed here:
 
 https://draft-js.netlify.com/editorV1
 
