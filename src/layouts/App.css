@@ -23,11 +23,25 @@ h1 {
   margin: 1vw;
 }
 
+.editor1 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.output {
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0.2);
+  width: 40vw;
+  height: 80vh;
+  padding: 5vh;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
 .main-container-editor-v1 {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  margin: 0 auto;
+  margin-left: 20px;
 }
 
 .collection-editor-v1 {
@@ -36,12 +50,12 @@ h1 {
   justify-content: space-evenly;
   padding: 5px 3px 5px 5px;
   border-radius: 5px;
-  width: 70vw;
+  width: 50vw;
 }
 
 .editor-v1-wrapper {
-  border: 1px solid grey;
-  width: 70vw;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0.2);
+  width: 50vw;
   height: 90vh;
   padding: 5vh;
   background-color: whitesmoke;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Editor, EditorState, RichUtils, convertToRaw } from "draft-js";
+import { stateToHTML } from "draft-js-export-html";
 // import createHighlightPlugin from "../plugins/highlightPlugin";
 // import addLinkPlugin from "../plugins/addLinkPlugin";
 
@@ -8,19 +9,21 @@ import { Editor, EditorState, RichUtils, convertToRaw } from "draft-js";
 class EditorV1 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-      editorState: EditorState.createEmpty()
+    this.state = { editorState: EditorState.createEmpty() };
+    this.onChange = editorState => {
+      this.setState({
+        editorState,
+        editorContentHtml: stateToHTML(editorState.getCurrentContent())
+      });
     };
-
     // this.plugins = [highlightPlugin, addLinkPlugin];
   }
 
-  onChange = editorState => {
-    this.setState({
-      editorState
-    });
-  };
+  // onChange = editorState => {
+  //   this.setState({
+  //     editorState
+  //   });
+  // };
 
   handleKeyCommand = command => {
     const newState = RichUtils.handleKeyCommand(
@@ -106,75 +109,81 @@ class EditorV1 extends React.Component {
 
   render() {
     return (
-      <div className="main-container-editor-v1">
-        <div className="collection-editor-v1">
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onBoldClick.bind(this)}
-          >
-            B
-          </button>
+      <div className="editor1">
+        <div className="main-container-editor-v1">
+          <div className="collection-editor-v1">
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onBoldClick.bind(this)}
+            >
+              B
+            </button>
 
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onItalicClick.bind(this)}
-          >
-            I
-          </button>
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onItalicClick.bind(this)}
+            >
+              I
+            </button>
 
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onStrikethroughClick.bind(this)}
-          >
-            <s>abc</s>
-          </button>
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onUnderlineClick.bind(this)}
-          >
-            <u>U</u>
-          </button>
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onBlockquoteClick.bind(this)}
-          >
-            " "
-          </button>
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onStrikethroughClick.bind(this)}
+            >
+              <s>abc</s>
+            </button>
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onUnderlineClick.bind(this)}
+            >
+              <u>U</u>
+            </button>
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onBlockquoteClick.bind(this)}
+            >
+              " "
+            </button>
 
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onUnorderedList.bind(this)}
-          >
-            UL
-          </button>
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onUnorderedList.bind(this)}
+            >
+              UL
+            </button>
 
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onOrderedList.bind(this)}
-          >
-            OL
-          </button>
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onHighlight}
-          >
-            <span style={{ background: "yellow" }}>H</span>
-          </button>
-          <button
-            className="styleButtons waves-effect btn-small white lighten-4"
-            onClick={this.onAddLink}
-          >
-            <i className="tiny material-icons">attach_file</i>
-          </button>
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onOrderedList.bind(this)}
+            >
+              OL
+            </button>
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onHighlight}
+            >
+              <span style={{ background: "yellow" }}>H</span>
+            </button>
+            <button
+              className="styleButtons waves-effect btn-small white lighten-4"
+              onClick={this.onAddLink}
+            >
+              <i className="tiny material-icons">attach_file</i>
+            </button>
+          </div>
+          <div className="editor-v1-wrapper">
+            <Editor
+              editorState={this.state.editorState}
+              placeholder="write something"
+              handleKeyCommand={this.handleKeyCommand}
+              onChange={this.onChange}
+              plugins={this.plugins}
+            />
+          </div>
         </div>
-        <div className="editor-v1-wrapper">
-          <Editor
-            editorState={this.state.editorState}
-            placeholder="write something"
-            handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChange}
-            plugins={this.plugins}
-          />
+        <div className="output">
+          <h4>Editor content as HTML</h4>
+          <p>{this.state.editorContentHtml}</p>
         </div>
       </div>
     );
